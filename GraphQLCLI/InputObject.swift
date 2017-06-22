@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+struct InputObject {
+    let kind: String
+    let name: String
+    let description: String?
+    let inputFields: [Field]
+    
+    init(kind: String, name: String, description: String?, inputFields: [Field]) {
+        self.kind = kind
+        self.name = name
+        self.description = description
+        self.inputFields = inputFields
+        
+    }
+}

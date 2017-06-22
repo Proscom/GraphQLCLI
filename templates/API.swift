@@ -66,7 +66,7 @@ struct Api {
             copy.request = Request(name: TeamPreloadedImages.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamAlbums {
         var fields: [Field]
         var arguments: [Argument]
@@ -129,7 +129,7 @@ struct Api {
             copy.request = Request(name: TeamAlbums.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamAreas {
         var fields: [Field]
         var arguments: [Argument]
@@ -262,7 +262,7 @@ struct Api {
             copy.request = Request(name: TeamAreas.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamAreasInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -402,7 +402,7 @@ struct Api {
             copy.request = Request(name: TeamAreasInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamDiscussions {
         var fields: [Field]
         var arguments: [Argument]
@@ -465,7 +465,7 @@ struct Api {
             copy.request = Request(name: TeamDiscussions.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamSports {
         var fields: [Field]
         var arguments: [Argument]
@@ -556,7 +556,7 @@ struct Api {
             copy.request = Request(name: TeamSports.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamSportsInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -654,7 +654,7 @@ struct Api {
             copy.request = Request(name: TeamSportsInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamMembers {
         var fields: [Field]
         var arguments: [Argument]
@@ -794,7 +794,7 @@ struct Api {
             copy.request = Request(name: TeamMembers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Teams {
         var fields: [Field]
         var arguments: [Argument]
@@ -920,7 +920,7 @@ struct Api {
             copy.request = Request(name: Teams.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamModerators {
         var fields: [Field]
         var arguments: [Argument]
@@ -1060,7 +1060,7 @@ struct Api {
             copy.request = Request(name: TeamModerators.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamEventsInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -1207,7 +1207,7 @@ struct Api {
             copy.request = Request(name: TeamEventsInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamEvents {
         var fields: [Field]
         var arguments: [Argument]
@@ -1347,7 +1347,7 @@ struct Api {
             copy.request = Request(name: TeamEvents.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamUsersInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -1480,7 +1480,7 @@ struct Api {
             copy.request = Request(name: TeamUsersInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamUsers {
         var fields: [Field]
         var arguments: [Argument]
@@ -1571,7 +1571,7 @@ struct Api {
             copy.request = Request(name: TeamUsers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamUsersCancelRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -1704,7 +1704,7 @@ struct Api {
             copy.request = Request(name: TeamUsersCancelRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TeamUsersSendRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -1837,13 +1837,13 @@ struct Api {
             copy.request = Request(name: TeamUsersSendRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct TrophyGroups {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var aliasName: String { return "TrophyGroups"}
-        static var returnType: TrophiesGroupType.Type { return TrophiesGroupType.self }
+        static var returnType: .Type { return .self }
         func append(field: Field) -> TrophyGroups {
             return append(fields: [field])
         }
@@ -1893,7 +1893,7 @@ struct Api {
             copy.request = Request(name: TrophyGroups.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Trophies {
         var fields: [Field]
         var arguments: [Argument]
@@ -1949,7 +1949,7 @@ struct Api {
             copy.request = Request(name: Trophies.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct ImageBackground {
         var fields: [Field]
         var arguments: [Argument]
@@ -1970,7 +1970,7 @@ struct Api {
             fields = []
             request = Request(name: ImageBackground.aliasName, arguments: arguments, fields: fields)
         }
-   }
+    }
    struct ImageLogo {
         var fields: [Field]
         var arguments: [Argument]
@@ -1991,7 +1991,7 @@ struct Api {
             fields = []
             request = Request(name: ImageLogo.aliasName, arguments: arguments, fields: fields)
         }
-   }
+    }
    struct ImageComments {
         var fields: [Field]
         var arguments: [Argument]
@@ -2047,7 +2047,7 @@ struct Api {
             copy.request = Request(name: ImageComments.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct ImageAvatar {
         var fields: [Field]
         var arguments: [Argument]
@@ -2068,7 +2068,7 @@ struct Api {
             fields = []
             request = Request(name: ImageAvatar.aliasName, arguments: arguments, fields: fields)
         }
-   }
+    }
    struct Images {
         var fields: [Field]
         var arguments: [Argument]
@@ -2124,7 +2124,7 @@ struct Api {
             copy.request = Request(name: Images.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct ImageBackgrounds {
         var fields: [Field]
         var arguments: [Argument]
@@ -2180,7 +2180,7 @@ struct Api {
             copy.request = Request(name: ImageBackgrounds.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Trainings {
         var fields: [Field]
         var arguments: [Argument]
@@ -2236,7 +2236,7 @@ struct Api {
             copy.request = Request(name: Trainings.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Comments {
         var fields: [Field]
         var arguments: [Argument]
@@ -2292,7 +2292,7 @@ struct Api {
             copy.request = Request(name: Comments.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaEvents {
         var fields: [Field]
         var arguments: [Argument]
@@ -2432,7 +2432,7 @@ struct Api {
             copy.request = Request(name: AreaEvents.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaPreloadedImages {
         var fields: [Field]
         var arguments: [Argument]
@@ -2495,7 +2495,7 @@ struct Api {
             copy.request = Request(name: AreaPreloadedImages.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaAlbums {
         var fields: [Field]
         var arguments: [Argument]
@@ -2558,7 +2558,7 @@ struct Api {
             copy.request = Request(name: AreaAlbums.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaTeams {
         var fields: [Field]
         var arguments: [Argument]
@@ -2691,7 +2691,7 @@ struct Api {
             copy.request = Request(name: AreaTeams.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaMembers {
         var fields: [Field]
         var arguments: [Argument]
@@ -2831,7 +2831,7 @@ struct Api {
             copy.request = Request(name: AreaMembers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaDiscussions {
         var fields: [Field]
         var arguments: [Argument]
@@ -2894,7 +2894,7 @@ struct Api {
             copy.request = Request(name: AreaDiscussions.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct AreaModerators {
         var fields: [Field]
         var arguments: [Argument]
@@ -3034,7 +3034,7 @@ struct Api {
             copy.request = Request(name: AreaModerators.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Areas {
         var fields: [Field]
         var arguments: [Argument]
@@ -3160,7 +3160,7 @@ struct Api {
             copy.request = Request(name: Areas.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportPreloadedImages {
         var fields: [Field]
         var arguments: [Argument]
@@ -3223,7 +3223,7 @@ struct Api {
             copy.request = Request(name: SportPreloadedImages.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Sports {
         var fields: [Field]
         var arguments: [Argument]
@@ -3307,7 +3307,7 @@ struct Api {
             copy.request = Request(name: Sports.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportTeams {
         var fields: [Field]
         var arguments: [Argument]
@@ -3440,7 +3440,7 @@ struct Api {
             copy.request = Request(name: SportTeams.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportEvents {
         var fields: [Field]
         var arguments: [Argument]
@@ -3580,7 +3580,7 @@ struct Api {
             copy.request = Request(name: SportEvents.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportMembers {
         var fields: [Field]
         var arguments: [Argument]
@@ -3720,7 +3720,7 @@ struct Api {
             copy.request = Request(name: SportMembers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportAlbums {
         var fields: [Field]
         var arguments: [Argument]
@@ -3783,7 +3783,7 @@ struct Api {
             copy.request = Request(name: SportAlbums.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportDiscussions {
         var fields: [Field]
         var arguments: [Argument]
@@ -3846,7 +3846,7 @@ struct Api {
             copy.request = Request(name: SportDiscussions.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct SportModerators {
         var fields: [Field]
         var arguments: [Argument]
@@ -3986,7 +3986,7 @@ struct Api {
             copy.request = Request(name: SportModerators.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Dislikes {
         var fields: [Field]
         var arguments: [Argument]
@@ -4042,7 +4042,7 @@ struct Api {
             copy.request = Request(name: Dislikes.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Likes {
         var fields: [Field]
         var arguments: [Argument]
@@ -4098,7 +4098,7 @@ struct Api {
             copy.request = Request(name: Likes.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct LikesUsers {
         var fields: [Field]
         var arguments: [Argument]
@@ -4231,7 +4231,7 @@ struct Api {
             copy.request = Request(name: LikesUsers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct ShopPreloadedImages {
         var fields: [Field]
         var arguments: [Argument]
@@ -4294,7 +4294,7 @@ struct Api {
             copy.request = Request(name: ShopPreloadedImages.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Shops {
         var fields: [Field]
         var arguments: [Argument]
@@ -4385,7 +4385,7 @@ struct Api {
             copy.request = Request(name: Shops.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventDates {
         var fields: [Field]
         var arguments: [Argument]
@@ -4406,7 +4406,7 @@ struct Api {
             fields = []
             request = Request(name: EventDates.aliasName, arguments: arguments, fields: fields)
         }
-   }
+    }
    struct EventAlbums {
         var fields: [Field]
         var arguments: [Argument]
@@ -4469,7 +4469,7 @@ struct Api {
             copy.request = Request(name: EventAlbums.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Events {
         var fields: [Field]
         var arguments: [Argument]
@@ -4602,7 +4602,7 @@ struct Api {
             copy.request = Request(name: Events.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventAreas {
         var fields: [Field]
         var arguments: [Argument]
@@ -4735,7 +4735,7 @@ struct Api {
             copy.request = Request(name: EventAreas.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventModerators {
         var fields: [Field]
         var arguments: [Argument]
@@ -4875,7 +4875,7 @@ struct Api {
             copy.request = Request(name: EventModerators.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventTeams {
         var fields: [Field]
         var arguments: [Argument]
@@ -5008,7 +5008,7 @@ struct Api {
             copy.request = Request(name: EventTeams.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventMembers {
         var fields: [Field]
         var arguments: [Argument]
@@ -5148,7 +5148,7 @@ struct Api {
             copy.request = Request(name: EventMembers.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct EventPreloadedImages {
         var fields: [Field]
         var arguments: [Argument]
@@ -5211,7 +5211,7 @@ struct Api {
             copy.request = Request(name: EventPreloadedImages.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTeamsSendRequestRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -5351,7 +5351,7 @@ struct Api {
             copy.request = Request(name: UserTeamsSendRequestRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTeamsSendInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -5491,7 +5491,7 @@ struct Api {
             copy.request = Request(name: UserTeamsSendInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTeams {
         var fields: [Field]
         var arguments: [Argument]
@@ -5624,7 +5624,7 @@ struct Api {
             copy.request = Request(name: UserTeams.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTeamsInviteRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -5764,7 +5764,7 @@ struct Api {
             copy.request = Request(name: UserTeamsInviteRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTrainingsMember {
         var fields: [Field]
         var arguments: [Argument]
@@ -5820,7 +5820,7 @@ struct Api {
             copy.request = Request(name: UserTrainingsMember.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTrainingsInvite {
         var fields: [Field]
         var arguments: [Argument]
@@ -5876,13 +5876,13 @@ struct Api {
             copy.request = Request(name: UserTrainingsInvite.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAccess {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var aliasName: String { return "UserAccess"}
-        static var returnType: AccessType.Type { return AccessType.self }
+        static var returnType: .Type { return .self }
         func append(field: Field) -> UserAccess {
             return append(fields: [field])
         }
@@ -5939,7 +5939,7 @@ struct Api {
             copy.request = Request(name: UserAccess.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTrophies {
         var fields: [Field]
         var arguments: [Argument]
@@ -6002,7 +6002,7 @@ struct Api {
             copy.request = Request(name: UserTrophies.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAreasInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -6142,7 +6142,7 @@ struct Api {
             copy.request = Request(name: UserAreasInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAreas {
         var fields: [Field]
         var arguments: [Argument]
@@ -6275,7 +6275,7 @@ struct Api {
             copy.request = Request(name: UserAreas.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAreasSendInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -6415,7 +6415,7 @@ struct Api {
             copy.request = Request(name: UserAreasSendInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserSportsInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -6513,7 +6513,7 @@ struct Api {
             copy.request = Request(name: UserSportsInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserSportsSendInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -6611,7 +6611,7 @@ struct Api {
             copy.request = Request(name: UserSportsSendInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserSports {
         var fields: [Field]
         var arguments: [Argument]
@@ -6702,7 +6702,7 @@ struct Api {
             copy.request = Request(name: UserSports.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTargetComments {
         var fields: [Field]
         var arguments: [Argument]
@@ -6772,7 +6772,7 @@ struct Api {
             copy.request = Request(name: UserTargetComments.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserFriends {
         var fields: [Field]
         var arguments: [Argument]
@@ -6912,7 +6912,7 @@ struct Api {
             copy.request = Request(name: UserFriends.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserFriendsInvite {
         var fields: [Field]
         var arguments: [Argument]
@@ -7052,7 +7052,7 @@ struct Api {
             copy.request = Request(name: UserFriendsInvite.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserFriendsSendRequest {
         var fields: [Field]
         var arguments: [Argument]
@@ -7192,7 +7192,7 @@ struct Api {
             copy.request = Request(name: UserFriendsSendRequest.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAuthCheckSMSCode {
         var fields: [Field]
         var arguments: [Argument]
@@ -7227,7 +7227,7 @@ struct Api {
             copy.request = Request(name: UserAuthCheckSMSCode.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserTargets {
         var fields: [Field]
         var arguments: [Argument]
@@ -7290,7 +7290,7 @@ struct Api {
             copy.request = Request(name: UserTargets.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct Users {
         var fields: [Field]
         var arguments: [Argument]
@@ -7423,7 +7423,7 @@ struct Api {
             copy.request = Request(name: Users.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserAlbums {
         var fields: [Field]
         var arguments: [Argument]
@@ -7486,7 +7486,7 @@ struct Api {
             copy.request = Request(name: UserAlbums.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserEventsSendInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -7633,7 +7633,7 @@ struct Api {
             copy.request = Request(name: UserEventsSendInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserEvents {
         var fields: [Field]
         var arguments: [Argument]
@@ -7773,7 +7773,7 @@ struct Api {
             copy.request = Request(name: UserEvents.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct UserEventsInvitesRelations {
         var fields: [Field]
         var arguments: [Argument]
@@ -7920,7 +7920,7 @@ struct Api {
             copy.request = Request(name: UserEventsInvitesRelations.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
+    }
    struct User {
         var fields: [Field]
         var arguments: [Argument]
@@ -7948,8 +7948,8 @@ struct Api {
             copy.request = Request(name: User.aliasName, arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   }
-   struct Query {
+    }
+    struct Query {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8194,7 +8194,23 @@ struct Api {
         static var User: UserType {
             return UserType(request: Request(name: "User"))
         }        
-   struct ListImagesProviderType {
+    struct Int {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct SortType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct String {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ImageTypes {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ListImagesProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8204,7 +8220,7 @@ struct Api {
         static var listItems: ImageType {
             return ImageType(request: Request(name: "listItems"))
         }        
-   struct ListHeaderType {
+    struct ListHeaderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8212,7 +8228,11 @@ struct Api {
         static var pageCount: String { return "pageCount" }
         static var onePage: String { return "onePage" }
         static var hasNextPage: String { return "hasNextPage" }
-   struct ImageType {
+    struct Boolean {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ImageType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8237,7 +8257,7 @@ struct Api {
         static var comments: ListCommentsProviderType {
             return ListCommentsProviderType(request: Request(name: "comments"))
         }        
-   struct UserType {
+    struct UserType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8316,7 +8336,19 @@ struct Api {
         static var currentGeoPosition: GeopositionType {
             return GeopositionType(request: Request(name: "currentGeoPosition"))
         }        
-   struct ListUsersProviderType {
+    struct BoundsInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct GeoPointInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct Float {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ListUsersProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8326,7 +8358,7 @@ struct Api {
         static var listItems: UserType {
             return UserType(request: Request(name: "listItems"))
         }        
-   struct ListEventsProviderType {
+    struct ListEventsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8336,7 +8368,7 @@ struct Api {
         static var listItems: EventType {
             return EventType(request: Request(name: "listItems"))
         }        
-   struct EventType {
+    struct EventType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8391,21 +8423,21 @@ struct Api {
         static var comments: ListCommentsProviderType {
             return ListCommentsProviderType(request: Request(name: "comments"))
         }        
-   struct EventDateType {
+    struct EventDateType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var idEvent: String { return "idEvent" }
         static var dtStart: String { return "dtStart" }
         static var dtEnd: String { return "dtEnd" }
-   struct EventDatesType {
+    struct EventDatesType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var isOverdue: String { return "isOverdue" }
         static var dtStart: String { return "dtStart" }
         static var dtEnd: String { return "dtEnd" }
-   struct CurrentUserStatusType {
+    struct CurrentUserStatusType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8417,7 +8449,7 @@ struct Api {
         static var isRoleAdmin: String { return "isRoleAdmin" }
         static var isRoleOwner: String { return "isRoleOwner" }
         static var isNull: String { return "isNull" }
-   struct ImageLogoType {
+    struct ImageLogoType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8445,7 +8477,7 @@ struct Api {
         static var variantSquareLarge: ImageVariantType {
             return ImageVariantType(request: Request(name: "variantSquareLarge"))
         }        
-   struct ImageVariantType {
+    struct ImageVariantType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8457,7 +8489,7 @@ struct Api {
         static var extension: String { return "extension" }
         static var src: String { return "src" }
         static var create: String { return "create" }
-   struct ListCommentsProviderType {
+    struct ListCommentsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8467,7 +8499,7 @@ struct Api {
         static var listItems: CommentType {
             return CommentType(request: Request(name: "listItems"))
         }        
-   struct CommentType {
+    struct CommentType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8493,7 +8525,7 @@ struct Api {
         static var userUpdated: UserType {
             return UserType(request: Request(name: "userUpdated"))
         }        
-   struct LikeType {
+    struct LikeType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8502,7 +8534,7 @@ struct Api {
             return ListUsersProviderType(request: Request(name: "users"))
         }        
         static var self: String { return "self" }
-   struct ImageBackgroundType {
+    struct ImageBackgroundType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8530,7 +8562,7 @@ struct Api {
         static var variantBackgroundLarge: ImageVariantType {
             return ImageVariantType(request: Request(name: "variantBackgroundLarge"))
         }        
-   struct GeopositionType {
+    struct GeopositionType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8539,12 +8571,12 @@ struct Api {
         static var address: String { return "address" }
         static var formattedAddress: String { return "formattedAddress" }
         static var typePosition: String { return "typePosition" }
-   struct EventPrivacy {
+    struct EventPrivacy {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var moderationUser: String { return "moderationUser" }
-   struct ListAreasProviderType {
+    struct ListAreasProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8554,7 +8586,7 @@ struct Api {
         static var listItems: AreaType {
             return AreaType(request: Request(name: "listItems"))
         }        
-   struct AreaType {
+    struct AreaType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8604,13 +8636,13 @@ struct Api {
         static var events: ListEventsProviderType {
             return ListEventsProviderType(request: Request(name: "events"))
         }        
-   struct TypeAreas {
+    struct TypeAreas {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var id: String { return "id" }
         static var name: String { return "name" }
-   struct ListSportsProviderType {
+    struct ListSportsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8620,7 +8652,7 @@ struct Api {
         static var listItems: SportType {
             return SportType(request: Request(name: "listItems"))
         }        
-   struct SportType {
+    struct SportType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8665,7 +8697,7 @@ struct Api {
         static var events: ListEventsProviderType {
             return ListEventsProviderType(request: Request(name: "events"))
         }        
-   struct ListBackgroundsProviderType {
+    struct ListBackgroundsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8675,7 +8707,7 @@ struct Api {
         static var listItems: ImageBackgroundType {
             return ImageBackgroundType(request: Request(name: "listItems"))
         }        
-   struct ListTrainingsProviderType {
+    struct ListTrainingsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8685,7 +8717,7 @@ struct Api {
         static var listItems: TrainingType {
             return TrainingType(request: Request(name: "listItems"))
         }        
-   struct TrainingType {
+    struct TrainingType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8711,7 +8743,7 @@ struct Api {
         static var sports: ListSportsProviderType {
             return ListSportsProviderType(request: Request(name: "sports"))
         }        
-   struct TrainingExerciseType {
+    struct TrainingExerciseType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8720,7 +8752,7 @@ struct Api {
         static var message: String { return "message" }
         static var created_at: String { return "created_at" }
         static var updated_at: String { return "updated_at" }
-   struct CurrentUserTrainingStatusType {
+    struct CurrentUserTrainingStatusType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8729,7 +8761,7 @@ struct Api {
         static var isRoleMember: String { return "isRoleMember" }
         static var isRoleOwner: String { return "isRoleOwner" }
         static var isNull: String { return "isNull" }
-   struct ListAlbumsProviderType {
+    struct ListAlbumsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8739,7 +8771,7 @@ struct Api {
         static var listItems: AlbumType {
             return AlbumType(request: Request(name: "listItems"))
         }        
-   struct AlbumType {
+    struct AlbumType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8750,7 +8782,7 @@ struct Api {
         static var images: ListImagesProviderType {
             return ListImagesProviderType(request: Request(name: "images"))
         }        
-   struct ListTeamsProviderType {
+    struct ListTeamsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8760,7 +8792,7 @@ struct Api {
         static var listItems: TeamType {
             return TeamType(request: Request(name: "listItems"))
         }        
-   struct TeamType {
+    struct TeamType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8813,12 +8845,12 @@ struct Api {
         static var sports: ListSportsProviderType {
             return ListSportsProviderType(request: Request(name: "sports"))
         }        
-   struct TeamPrivacy {
+    struct TeamPrivacy {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var moderationUser: String { return "moderationUser" }
-   struct ListDiscussionsProviderType {
+    struct ListDiscussionsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8828,7 +8860,7 @@ struct Api {
         static var listItems: DiscussionType {
             return DiscussionType(request: Request(name: "listItems"))
         }        
-   struct DiscussionType {
+    struct DiscussionType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8843,7 +8875,7 @@ struct Api {
         static var images: ListImagesProviderType {
             return ListImagesProviderType(request: Request(name: "images"))
         }        
-   struct ListTargetsProviderType {
+    struct ListTargetsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8853,7 +8885,7 @@ struct Api {
         static var listItems: TargetType {
             return TargetType(request: Request(name: "listItems"))
         }        
-   struct TargetType {
+    struct TargetType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8877,7 +8909,7 @@ struct Api {
         static var comments: ListCommentsProviderType {
             return ListCommentsProviderType(request: Request(name: "comments"))
         }        
-   struct ListTrophiesProviderType {
+    struct ListTrophiesProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8887,7 +8919,7 @@ struct Api {
         static var listItems: TrophyType {
             return TrophyType(request: Request(name: "listItems"))
         }        
-   struct TrophyType {
+    struct TrophyType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8903,7 +8935,7 @@ struct Api {
         static var logo: ImageLogoType {
             return ImageLogoType(request: Request(name: "logo"))
         }        
-   struct TrophiesGroupType {
+    struct TrophiesGroupType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8912,7 +8944,7 @@ struct Api {
         static var description: String { return "description" }
         static var typeName: String { return "typeName" }
         static var created_at: String { return "created_at" }
-   struct LevelSettingsType {
+    struct LevelSettingsType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8920,19 +8952,19 @@ struct Api {
         static var nextLevel: LevelSettingsType {
             return LevelSettingsType(request: Request(name: "nextLevel"))
         }        
-   struct LevelStatusType {
+    struct LevelStatusType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var id: String { return "id" }
         static var name: String { return "name" }
-   struct AccessType {
+    struct AccessType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var key: String { return "key" }
         static var value: String { return "value" }
-   struct CurrentUserStatusFriendType {
+    struct CurrentUserStatusFriendType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8941,7 +8973,7 @@ struct Api {
         static var isCancelRequest: String { return "isCancelRequest" }
         static var isSelfRequest: String { return "isSelfRequest" }
         static var isNull: String { return "isNull" }
-   struct ListAreaTeamRelationsProviderType {
+    struct ListAreaTeamRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8951,7 +8983,7 @@ struct Api {
         static var listItems: AreaTeamRelationType {
             return AreaTeamRelationType(request: Request(name: "listItems"))
         }        
-   struct AreaTeamRelationType {
+    struct AreaTeamRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8965,7 +8997,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListSportTeamRelationsProviderType {
+    struct ListSportTeamRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8975,7 +9007,7 @@ struct Api {
         static var listItems: SportTeamRelationType {
             return SportTeamRelationType(request: Request(name: "listItems"))
         }        
-   struct SportTeamRelationType {
+    struct SportTeamRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8989,7 +9021,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListEventTeamRelationsProviderType {
+    struct ListEventTeamRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -8999,7 +9031,7 @@ struct Api {
         static var listItems: EventTeamRelationType {
             return EventTeamRelationType(request: Request(name: "listItems"))
         }        
-   struct EventTeamRelationType {
+    struct EventTeamRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9016,7 +9048,7 @@ struct Api {
             return TeamType(request: Request(name: "teamSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListTeamUserRelationsProviderType {
+    struct ListTeamUserRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9026,7 +9058,7 @@ struct Api {
         static var listItems: TeamUserRelationType {
             return TeamUserRelationType(request: Request(name: "listItems"))
         }        
-   struct TeamUserRelationType {
+    struct TeamUserRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9040,7 +9072,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListShopsProviderType {
+    struct ListShopsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9050,7 +9082,7 @@ struct Api {
         static var listItems: ShopType {
             return ShopType(request: Request(name: "listItems"))
         }        
-   struct ShopType {
+    struct ShopType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9091,7 +9123,11 @@ struct Api {
         static var dislikes: LikeType {
             return LikeType(request: Request(name: "dislikes"))
         }        
-   struct HoursType {
+    struct ShopTypesEnum {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct HoursType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9100,13 +9136,17 @@ struct Api {
         }        
         static var from: String { return "from" }
         static var to: String { return "to" }
-   struct PhoneType {
+    struct WeekDays {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct PhoneType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var id: String { return "id" }
         static var phone: String { return "phone" }
-   struct ListAreaUserRelationsProviderType {
+    struct ListAreaUserRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9116,7 +9156,7 @@ struct Api {
         static var listItems: AreaUserRelationType {
             return AreaUserRelationType(request: Request(name: "listItems"))
         }        
-   struct AreaUserRelationType {
+    struct AreaUserRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9130,7 +9170,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListSportUserRelationsProviderType {
+    struct ListSportUserRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9140,7 +9180,7 @@ struct Api {
         static var listItems: SportUserRelationType {
             return SportUserRelationType(request: Request(name: "listItems"))
         }        
-   struct SportUserRelationType {
+    struct SportUserRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9154,7 +9194,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct ListEventUserRelationsProviderType {
+    struct ListEventUserRelationsProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9164,7 +9204,7 @@ struct Api {
         static var listItems: EventUserRelationType {
             return EventUserRelationType(request: Request(name: "listItems"))
         }        
-   struct EventUserRelationType {
+    struct EventUserRelationType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9178,7 +9218,7 @@ struct Api {
             return UserType(request: Request(name: "userSender"))
         }        
         static var updated_at: String { return "updated_at" }
-   struct Mutation {
+    struct Mutation {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9349,7 +9389,103 @@ struct Api {
         static var UserEventJoinMutation: String { return "UserEventJoinMutation" }
         static var UserEventInviteMutation: String { return "UserEventInviteMutation" }
         static var UserEventOutMutation: String { return "UserEventOutMutation" }
-   struct AccessTokenType {
+    struct TeamUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct GeoPositionInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct AddressComponentsInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct PrivacyType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct TeamCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct TaskCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct AlbumUpdateType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct DiscussionCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct DiscussionUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct TrainingUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct TrainingCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct AreaUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct AreaCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct SportCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct SportUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ShopCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct HoursInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ShopUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct EventUpdateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct EventDateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct EventPeriodInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct EventRepeatInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct RepeatType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct EventCreateInputType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct AccessTokenType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9358,7 +9494,7 @@ struct Api {
         static var tokenType: String { return "tokenType" }
         static var scope: String { return "scope" }
         static var refreshToken: String { return "refreshToken" }
-   struct __Schema {
+    struct __Schema {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9377,7 +9513,7 @@ struct Api {
         static var directives: __Directive {
             return __Directive(request: Request(name: "directives"))
         }        
-   struct __Type {
+    struct __Type {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9404,7 +9540,11 @@ struct Api {
         static var ofType: __Type {
             return __Type(request: Request(name: "ofType"))
         }        
-   struct __Field {
+    struct __TypeKind {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct __Field {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9418,7 +9558,7 @@ struct Api {
         }        
         static var isDeprecated: String { return "isDeprecated" }
         static var deprecationReason: String { return "deprecationReason" }
-   struct __InputValue {
+    struct __InputValue {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9428,7 +9568,7 @@ struct Api {
             return __Type(request: Request(name: "type"))
         }        
         static var defaultValue: String { return "defaultValue" }
-   struct __EnumValue {
+    struct __EnumValue {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9436,7 +9576,7 @@ struct Api {
         static var description: String { return "description" }
         static var isDeprecated: String { return "isDeprecated" }
         static var deprecationReason: String { return "deprecationReason" }
-   struct __Directive {
+    struct __Directive {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9451,20 +9591,39 @@ struct Api {
         static var onOperation: String { return "onOperation" }
         static var onFragment: String { return "onFragment" }
         static var onField: String { return "onField" }
-   struct ScenarioBlockType {
+    struct __DirectiveLocation {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ScenarioBlockType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var result: String { return "result" }
         static var message: String { return "message" }
-   struct TestType {
+    struct TestScalarType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct TestInterfaceType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var id: String { return "id" }
         static var name: String { return "name" }
         static var description: String { return "description" }
-   struct ListLikesProviderType {
+    struct TestType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+        static var id: String { return "id" }
+        static var name: String { return "name" }
+        static var description: String { return "description" }
+    struct TestEnumType {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    struct ListLikesProviderType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9474,7 +9633,7 @@ struct Api {
         static var listItems: LikeType {
             return LikeType(request: Request(name: "listItems"))
         }        
-   struct UserSportType {
+    struct UserSportType {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
@@ -9520,4 +9679,10 @@ struct Api {
             return ListEventsProviderType(request: Request(name: "events"))
         }        
         static var userLevel: String { return "userLevel" }
+    struct ID {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+    }
+    //MARK:- input objects
 }

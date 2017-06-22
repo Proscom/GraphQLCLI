@@ -43,28 +43,41 @@ struct Api {
             return copy
         }
    		{% endfor %}
-   }
-   {% endfor %}
+    }
+    {% endfor %}
 
-   {% for object in objects %}
+    {% for object in objects %}
 
-   struct {{ object.name }} {
+    struct {{ object.name }} {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
 
         {% for field in object.fields %}
 
-        {% if field.type.isScalar %}
+        {% if field.finalType.isScalar %}
         static var {{ field.name }}: String { return "{{ field.name }}" }
         {% else %}
-        static var {{ field.name }}: {{ field.type.name }} {
-            return {{ field.type.name }}(request: Request(name: "{{ field.name }}"))
+        static var {{ field.name }}: {{ field.finalType.name }} {
+            return {{ field.finalType.name }}(request: Request(name: "{{ field.name }}"))
         }        
         {% endif %}
 
         
         {% endfor %}
-   {% endfor %}
+    {% endfor %}
+    }
+    //MARK:- input objects
+    {% for inputObject in inputObjects %}
+
+    struct {{ inputObject.name }}: ArgumentValue {
+        public let key: String
+        public let direction: String
+        var asGraphQLArgument: String {
+            return "{key: \"\(key)\", direction: \"\(direction)\"}"
+        }
+    }
+    {% endfor %}
+
 
 }

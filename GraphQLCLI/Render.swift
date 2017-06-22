@@ -66,8 +66,15 @@ struct Render {
         let path = Path("/Users/maxim/Sugar/GraphQLCLI/templates/swift.stencil")
         let renderer = try! Renderer(templatePath: path)
         
-        let objects = objects.filter { $0.kind == Kind.object }
+        //let objects = objects.filter { $0.kind == Kind.object }
         let query = objects.first(where: { $0.name == Query.alias })!
+        let mutation = objects.first(where: { $0.name == "Mutation" })!
+        print(mutation.name)
+        let inputObjects = objects.filter { $0.kind == Kind.inputObject }
+        
+        let kinds = objects.flatMap {$0.kind}
+        print(kinds)
+        print(inputObjects.count)
         let context: [String : Any] = [
             "objects": objects,
             "query": query
@@ -77,22 +84,7 @@ struct Render {
         let fileOutput: Output = .file("/Users/maxim/Sugar/GraphQLCLI/templates/API.swift")
         try! fileOutput.write(text: code)
 
-//        let environment = Environment(loader: FileSystemLoader(paths: ["templates/"]))
-//        let rendered = try! environment.renderTemplate(name: "swift", context: context)// (name: context)
-        //print(rendered)
     }
-    
-    struct Article {
-        let title: String
-        let author: String
-    }
-    
-    let context = [
-        "articles": [
-            Article(title: "Migrating from OCUnit to XCTest", author: "Kyle Fuller"),
-            Article(title: "Memory Management with ARC", author: "Kyle Fuller"),
-        ]
-    ]
     
 }
 
