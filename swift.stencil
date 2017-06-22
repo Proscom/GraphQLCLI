@@ -1,0 +1,21 @@
+// DO NOT EDIT. This file is machine-generated and constantly overwritten.
+// Make changes to {{ file }} instead.
+
+import Foundation
+
+// swiftlint:disable file_length
+// swiftlint:disable type_body_length
+
+struct Api {
+   {% for field in fields %}
+   struct {{ field.name }} {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+        static var aliasName: String { return "{{ field.name }}"}
+        
+        static var returnType: String.Type { return String.self }
+   }
+
+   {% endfor %}
+}

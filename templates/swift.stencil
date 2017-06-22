@@ -1,0 +1,70 @@
+// DO NOT EDIT. This file is machine-generated and constantly overwritten.
+// Make changes to {{ file }} instead.
+
+import Foundation
+
+// swiftlint:disable file_length
+// swiftlint:disable type_body_length
+
+struct Api {
+   {% for field in query.fields %}
+   struct {{ field.name }} {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+        static var aliasName: String { return "{{ field.name }}"}
+        
+        static var returnType: {{ field.type.name }}.Type { return {{ field.type.name }}.self }
+        
+        func append(field: Field) -> {{ field.name }} {
+            return append(fields: [field])
+        }
+        
+        func append(fields: [Field]) -> {{ field.name }} {
+            var copy = self
+            copy.fields.append(contentsOf: fields)
+            copy.request = Request(name: {{ field.name }}.aliasName, arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+
+        init() {
+            arguments = []
+            fields = []
+            request = Request(name: {{ field.name }}.aliasName, arguments: arguments, fields: fields)
+        }
+
+        {% for arg in field.arguments %}
+       
+        func {{ arg.name }}(_ value: Int?) -> {{ field.name }} {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "{{ arg.name }}", value: nonOptionalValue))
+            copy.request = Request(name: {{ field.name }}.aliasName, arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+   		{% endfor %}
+   }
+   {% endfor %}
+
+   {% for object in objects %}
+
+   struct {{ object.name }} {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+
+        {% for field in object.fields %}
+
+        {% if field.type.isScalar %}
+        static var {{ field.name }}: String { return "{{ field.name }}" }
+        {% else %}
+        static var {{ field.name }}: {{ field.type.name }} {
+            return {{ field.type.name }}(request: Request(name: "{{ field.name }}"))
+        }        
+        {% endif %}
+
+        
+        {% endfor %}
+   {% endfor %}
+
+}

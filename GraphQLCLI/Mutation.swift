@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  Mutation.swift
 //  GraphQLCLI
 //
 //  Created by MAXIM KOLESNIK on 21.06.17.
@@ -7,6 +7,3 @@
 //
 
 import Foundation
-
-var program = Program(input: ProcessInfo.processInfo.arguments)
-try! program.run()
