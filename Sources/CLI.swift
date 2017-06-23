@@ -107,6 +107,7 @@ struct Program {
             print("dictionary succeseful generated")
             return dictionary
         } catch {
+            print(error.localizedDescription)
             throw CodegenError.codegenResultNotCreate
         }
 
