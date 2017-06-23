@@ -8,13 +8,13 @@
 
 import Foundation
 
-public typealias JSONArray = [[String : AnyObject]]
-public typealias JSONDictionary = [String : AnyObject]
+//public typealias JSONArray = [[String : AnyObject]]
+//public typealias JSONDictionary = [String : AnyObject]
 
 protocol Generatable {
     func render() -> String
 }
 
 protocol Convertible {
-    static func from(dictionary: JSONDictionary) -> Self?
+    //static func from(dictionary: JSONDictionary) -> Self?
 }

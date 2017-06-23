@@ -20,21 +20,21 @@ struct Object {
 }
 
 extension Object {
-    static func object(from dictionary: JSONDictionary) -> Object? {
-        guard let name: String = dictionary["name"] as? String else { return nil }
-        guard let kind = dictionary["kind"] as? String else { return nil }
-        let description: String? = dictionary["description"] as? String
+    static func object(from dictionary: JSON) -> Object? {
+        guard let name: String = dictionary["name"].string else { return nil }
+        guard let kind = dictionary["kind"].string else { return nil }
+        let description: String? = dictionary["description"].string
 
-        let fieldsDictionaryArray: JSONArray? = dictionary["fields"] as? JSONArray
+        let fieldsDictionaryArray: [JSON]? = dictionary["fields"].array
         let fields: [Field] = fieldsDictionaryArray?.flatMap { Field.field(from: $0) } ?? []
 
-        let inputFieldsDictionaryArray: JSONArray? = dictionary["inputFields"] as? JSONArray
+        let inputFieldsDictionaryArray: [JSON]? = dictionary["inputFields"].array
         let inputFields: [Field] = inputFieldsDictionaryArray?.flatMap { Field.field(from: $0) } ?? []
     
         let fileds = inputFields.map { f in "\(f.name): " + "\\" + "\"" + "\\" + "(" + "\(f.name)" + ")" + "\\" + "\""}
         let asGraphQLArgument = fileds.joined(separator: ", ")
 
-        let enumValuesDictionaryArray: JSONArray? = dictionary["enumValues"] as? JSONArray
+        let enumValuesDictionaryArray: [JSON]? = dictionary["enumValues"].array
         let enumValues: [Enum] = enumValuesDictionaryArray?.flatMap { Enum.enum(from: $0) } ?? []
         
         let object = Object(name: name, kind: kind, description: description, fields: fields, inputFields: inputFields, asGraphQLArgument: asGraphQLArgument, enumValues: enumValues)

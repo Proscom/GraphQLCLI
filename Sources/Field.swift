@@ -22,12 +22,12 @@ struct Field {
 }
 
 extension Field {
-    static func field(from dictionary: JSONDictionary) -> Field? {
-        guard let name: String = dictionary["name"] as? String else { return nil }
-        let argumetDictionaryArray: JSONArray? = dictionary["args"] as? JSONArray
+    static func field(from dictionary: JSON) -> Field? {
+        guard let name: String = dictionary["name"].string else { return nil }
+        let argumetDictionaryArray: [JSON]? = dictionary["args"].array
         let arguments = argumetDictionaryArray?.flatMap { Argument.argument(from: $0) } ?? []
-        let description: String?  = dictionary["description"] as? String
-        guard let typeDictionary: JSONDictionary = dictionary["type"] as? JSONDictionary else { return nil }
+        let description: String?  = dictionary["description"].string
+        let typeDictionary: JSON = dictionary["type"] 
         let type = Type.type(from: typeDictionary)!
         let finalType = Type.recursiveType(Type.type(from: typeDictionary)!)
         

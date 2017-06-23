@@ -17,11 +17,11 @@ struct Argument {
 }
 
 extension Argument {
-    static func argument(from dictionary: JSONDictionary) -> Argument? {
-        guard let name: String = dictionary["name"] as? String else { return nil }
-        guard let typeDictionary: JSONDictionary = dictionary["type"] as? JSONDictionary else { return nil }
+    static func argument(from dictionary: JSON) -> Argument? {
+        guard let name: String = dictionary["name"].string else { return nil }
+        let typeDictionary: JSON = dictionary["type"]
         guard let type: Type = Type.type(from: typeDictionary) else { return nil }
-        let description: String? = dictionary["description"] as? String
+        let description: String? = dictionary["description"].string
         
         //let type = Type.type(from: typeDictionary)!
         let finalType = Type.recursiveType(type)

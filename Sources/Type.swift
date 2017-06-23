@@ -29,15 +29,23 @@ class Type {
 
 extension Type {
     
-    static func type(from dictionary: JSONDictionary) -> Type? {
+    static func type(from dictionary: JSON) -> Type? {
         var ofType: Type? = nil
-        if let ofTypeDictionary: JSONDictionary = dictionary["ofType"] as? JSONDictionary {
+        let ofTypeDictionary: JSON = dictionary["ofType"]
+        switch ofTypeDictionary {
+        case .Object(let object):
+            //print(object)
             ofType = Type.type(from: ofTypeDictionary)
-        }
-        guard let kind: String = dictionary["kind"] as? String else { return nil }
-        let name: String? = dictionary["name"] as? String
-        let isScalar: Bool = kind == Kind.scalar || kind == Kind.enum
 
+        default:
+            break
+        }
+            
+        
+        guard let kind: String = dictionary["kind"].string else { return nil }
+        let name: String? = dictionary["name"].string
+        let isScalar: Bool = kind == Kind.scalar || kind == Kind.enum
+        
         return Type(kind: kind, name: name, isScalar: isScalar, ofType: ofType)
     }
     

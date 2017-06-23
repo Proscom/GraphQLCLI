@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Jay
 
 private func announcingExit(_ message: Any...) {
     print(message)
@@ -65,10 +64,10 @@ struct Program {
         }
     }
     
-    func generate(_ dictionary: JSONDictionary) {
-        guard let data: JSONDictionary = dictionary["data"] as? JSONDictionary else { return }
-        guard let schema: JSONDictionary = data["__schema"] as? JSONDictionary else { return }
-        guard let types: JSONArray = schema["types"]as? JSONArray else { return }
+    func generate(_ dictionary: JSON) {
+        let data: JSON = dictionary["data"]
+        let schema: JSON = data["__schema"]
+        guard let types: [JSON] = schema["types"].array else { return }
         
         //let queries = types.flatMap { Query.query(from: $0) }
         //print("query count: \(query.count)")
@@ -96,7 +95,7 @@ struct Program {
     
     
     
-    func makeDictionary() throws -> JSONDictionary {
+    func makeDictionary() throws -> JSON {
         guard let path = jsonPath else { throw CodegenError.thereIsNoWayToModel }
 
         let url = URL(fileURLWithPath: path)
@@ -104,13 +103,15 @@ struct Program {
             //get data from disk/network
             let dataContentsOfURL = try Data(contentsOf: url)
 
-            let data: [UInt8] = dataContentsOfURL.withUnsafeBytes{
-                [UInt8](UnsafeBufferPointer(start: $0, count: dataContentsOfURL.count))
-            }
+//            let data: [UInt8] = dataContentsOfURL.withUnsafeBytes{
+//                [UInt8](UnsafeBufferPointer(start: $0, count: dataContentsOfURL.count))
+//            }
 
-            let json = try Jay().anyJsonFromData(data) // [String: Any] or [Any]
-            guard let dictionary: JSONDictionary = json as? JSONDictionary else { throw CodegenError.JSONSerializationError }
-            return dictionary
+            let json = try JSON.parse(utf8: dataContentsOfURL)//try Jay().anyJsonFromData(data) // [String: Any] or [Any]
+            return json
+            //json.
+            //guard let dictionary: JSONDictionary = json as? JSONDictionary else { throw CodegenError.JSONSerializationError }
+            //return [:]
 
         } catch {
             print("Parsing error: \(error)")
