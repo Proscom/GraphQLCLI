@@ -100,10 +100,10 @@ struct Program {
         let url = URL(fileURLWithPath: path)
         do {
             //return try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
-            print("url to model\(url)")
+            print("url to model \(url)")
             let data = try Data(contentsOf: url)
             print("data succeseful loaded")
-            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
+            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
             print("dictionary succeseful generated")
             return dictionary
         } catch {
