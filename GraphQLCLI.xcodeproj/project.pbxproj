@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9428EA291EFCE20300C913F2 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9428EA271EFCE19400C913F2 /* Enum.swift */; };
-		942F069A1EFAD8C10005A680 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068D1EFAD8C10005A680 /* Argument.swift */; };
-		942F069B1EFAD8C10005A680 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068E1EFAD8C10005A680 /* CLI.swift */; };
-		942F069C1EFAD8C10005A680 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068F1EFAD8C10005A680 /* Error.swift */; };
-		942F069D1EFAD8C10005A680 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06901EFAD8C10005A680 /* Field.swift */; };
-		942F069E1EFAD8C10005A680 /* InputObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06911EFAD8C10005A680 /* InputObject.swift */; };
-		942F069F1EFAD8C10005A680 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06921EFAD8C10005A680 /* Kind.swift */; };
-		942F06A01EFAD8C10005A680 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06931EFAD8C10005A680 /* main.swift */; };
-		942F06A11EFAD8C10005A680 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06941EFAD8C10005A680 /* Mutation.swift */; };
-		942F06A21EFAD8C10005A680 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06951EFAD8C10005A680 /* Object.swift */; };
-		942F06A31EFAD8C10005A680 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06961EFAD8C10005A680 /* Query.swift */; };
-		942F06A41EFAD8C10005A680 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06971EFAD8C10005A680 /* Render.swift */; };
-		942F06A51EFAD8C10005A680 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06981EFAD8C10005A680 /* Support.swift */; };
-		942F06A61EFAD8C10005A680 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F06991EFAD8C10005A680 /* Type.swift */; };
+		943A3F5C1EFD0C10003ADD75 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F4E1EFD0C10003ADD75 /* Argument.swift */; };
+		943A3F5D1EFD0C10003ADD75 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F4F1EFD0C10003ADD75 /* CLI.swift */; };
+		943A3F5E1EFD0C10003ADD75 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F501EFD0C10003ADD75 /* Enum.swift */; };
+		943A3F5F1EFD0C10003ADD75 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F511EFD0C10003ADD75 /* Error.swift */; };
+		943A3F601EFD0C10003ADD75 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F521EFD0C10003ADD75 /* Field.swift */; };
+		943A3F611EFD0C10003ADD75 /* InputObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F531EFD0C10003ADD75 /* InputObject.swift */; };
+		943A3F621EFD0C10003ADD75 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F541EFD0C10003ADD75 /* Kind.swift */; };
+		943A3F631EFD0C10003ADD75 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F551EFD0C10003ADD75 /* main.swift */; };
+		943A3F641EFD0C10003ADD75 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F561EFD0C10003ADD75 /* Mutation.swift */; };
+		943A3F651EFD0C10003ADD75 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F571EFD0C10003ADD75 /* Object.swift */; };
+		943A3F661EFD0C10003ADD75 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F581EFD0C10003ADD75 /* Query.swift */; };
+		943A3F671EFD0C10003ADD75 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F591EFD0C10003ADD75 /* Render.swift */; };
+		943A3F681EFD0C10003ADD75 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F5A1EFD0C10003ADD75 /* Support.swift */; };
+		943A3F691EFD0C10003ADD75 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A3F5B1EFD0C10003ADD75 /* Type.swift */; };
 		OBJ_100 /* Inheritence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Inheritence.swift */; };
 		OBJ_101 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* Lexer.swift */; };
 		OBJ_102 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Loader.swift */; };
@@ -138,20 +138,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9428EA271EFCE19400C913F2 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		942F068D1EFAD8C10005A680 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = GraphQLCLI/Argument.swift; sourceTree = SOURCE_ROOT; };
-		942F068E1EFAD8C10005A680 /* CLI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLI.swift; path = GraphQLCLI/CLI.swift; sourceTree = SOURCE_ROOT; };
-		942F068F1EFAD8C10005A680 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = GraphQLCLI/Error.swift; sourceTree = SOURCE_ROOT; };
-		942F06901EFAD8C10005A680 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Field.swift; path = GraphQLCLI/Field.swift; sourceTree = SOURCE_ROOT; };
-		942F06911EFAD8C10005A680 /* InputObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputObject.swift; path = GraphQLCLI/InputObject.swift; sourceTree = SOURCE_ROOT; };
-		942F06921EFAD8C10005A680 /* Kind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Kind.swift; path = GraphQLCLI/Kind.swift; sourceTree = SOURCE_ROOT; };
-		942F06931EFAD8C10005A680 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = GraphQLCLI/main.swift; sourceTree = SOURCE_ROOT; };
-		942F06941EFAD8C10005A680 /* Mutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mutation.swift; path = GraphQLCLI/Mutation.swift; sourceTree = SOURCE_ROOT; };
-		942F06951EFAD8C10005A680 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = GraphQLCLI/Object.swift; sourceTree = SOURCE_ROOT; };
-		942F06961EFAD8C10005A680 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Query.swift; path = GraphQLCLI/Query.swift; sourceTree = SOURCE_ROOT; };
-		942F06971EFAD8C10005A680 /* Render.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Render.swift; path = GraphQLCLI/Render.swift; sourceTree = SOURCE_ROOT; };
-		942F06981EFAD8C10005A680 /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Support.swift; path = GraphQLCLI/Support.swift; sourceTree = SOURCE_ROOT; };
-		942F06991EFAD8C10005A680 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Type.swift; path = GraphQLCLI/Type.swift; sourceTree = SOURCE_ROOT; };
+		943A3F4E1EFD0C10003ADD75 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
+		943A3F4F1EFD0C10003ADD75 /* CLI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLI.swift; sourceTree = "<group>"; };
+		943A3F501EFD0C10003ADD75 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		943A3F511EFD0C10003ADD75 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		943A3F521EFD0C10003ADD75 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		943A3F531EFD0C10003ADD75 /* InputObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputObject.swift; sourceTree = "<group>"; };
+		943A3F541EFD0C10003ADD75 /* Kind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
+		943A3F551EFD0C10003ADD75 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		943A3F561EFD0C10003ADD75 /* Mutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
+		943A3F571EFD0C10003ADD75 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		943A3F581EFD0C10003ADD75 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		943A3F591EFD0C10003ADD75 /* Render.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
+		943A3F5A1EFD0C10003ADD75 /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		943A3F5B1EFD0C10003ADD75 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		OBJ_12 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
 		OBJ_13 /* SWXMLHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		OBJ_15 /* ArgumentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentConvertible.swift; sourceTree = "<group>"; };
@@ -255,44 +255,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		942F06A71EFB9F690005A680 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				942F068D1EFAD8C10005A680 /* Argument.swift */,
-				9428EA271EFCE19400C913F2 /* Enum.swift */,
-				942F06901EFAD8C10005A680 /* Field.swift */,
-				942F06951EFAD8C10005A680 /* Object.swift */,
-				942F06991EFAD8C10005A680 /* Type.swift */,
-			);
-			name = Input;
-			sourceTree = "<group>";
-		};
-		942F06A81EFB9F7D0005A680 /* Render */ = {
-			isa = PBXGroup;
-			children = (
-				942F06971EFAD8C10005A680 /* Render.swift */,
-			);
-			name = Render;
-			sourceTree = "<group>";
-		};
-		942F06A91EFBA0310005A680 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				942F06911EFAD8C10005A680 /* InputObject.swift */,
-				942F06941EFAD8C10005A680 /* Mutation.swift */,
-				942F06961EFAD8C10005A680 /* Query.swift */,
-			);
-			name = Objects;
-			sourceTree = "<group>";
-		};
-		942F06AA1EFBA07A0005A680 /* Generator */ = {
-			isa = PBXGroup;
-			children = (
-				942F068E1EFAD8C10005A680 /* CLI.swift */,
-			);
-			name = Generator;
-			sourceTree = "<group>";
-		};
 		OBJ_10 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,14 +373,20 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				942F06A91EFBA0310005A680 /* Objects */,
-				942F06AA1EFBA07A0005A680 /* Generator */,
-				942F06A81EFB9F7D0005A680 /* Render */,
-				942F06A71EFB9F690005A680 /* Input */,
-				942F068F1EFAD8C10005A680 /* Error.swift */,
-				942F06921EFAD8C10005A680 /* Kind.swift */,
-				942F06931EFAD8C10005A680 /* main.swift */,
-				942F06981EFAD8C10005A680 /* Support.swift */,
+				943A3F4E1EFD0C10003ADD75 /* Argument.swift */,
+				943A3F4F1EFD0C10003ADD75 /* CLI.swift */,
+				943A3F501EFD0C10003ADD75 /* Enum.swift */,
+				943A3F511EFD0C10003ADD75 /* Error.swift */,
+				943A3F521EFD0C10003ADD75 /* Field.swift */,
+				943A3F531EFD0C10003ADD75 /* InputObject.swift */,
+				943A3F541EFD0C10003ADD75 /* Kind.swift */,
+				943A3F551EFD0C10003ADD75 /* main.swift */,
+				943A3F561EFD0C10003ADD75 /* Mutation.swift */,
+				943A3F571EFD0C10003ADD75 /* Object.swift */,
+				943A3F581EFD0C10003ADD75 /* Query.swift */,
+				943A3F591EFD0C10003ADD75 /* Render.swift */,
+				943A3F5A1EFD0C10003ADD75 /* Support.swift */,
+				943A3F5B1EFD0C10003ADD75 /* Type.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -603,20 +571,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				942F06A31EFAD8C10005A680 /* Query.swift in Sources */,
-				942F069B1EFAD8C10005A680 /* CLI.swift in Sources */,
-				942F06A01EFAD8C10005A680 /* main.swift in Sources */,
-				942F06A11EFAD8C10005A680 /* Mutation.swift in Sources */,
-				9428EA291EFCE20300C913F2 /* Enum.swift in Sources */,
-				942F069E1EFAD8C10005A680 /* InputObject.swift in Sources */,
-				942F06A51EFAD8C10005A680 /* Support.swift in Sources */,
-				942F06A21EFAD8C10005A680 /* Object.swift in Sources */,
-				942F06A61EFAD8C10005A680 /* Type.swift in Sources */,
-				942F069C1EFAD8C10005A680 /* Error.swift in Sources */,
-				942F069D1EFAD8C10005A680 /* Field.swift in Sources */,
-				942F069A1EFAD8C10005A680 /* Argument.swift in Sources */,
-				942F06A41EFAD8C10005A680 /* Render.swift in Sources */,
-				942F069F1EFAD8C10005A680 /* Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,12 +580,26 @@
 			files = (
 				OBJ_67 /* Case.swift in Sources */,
 				OBJ_68 /* Context.swift in Sources */,
+				943A3F5D1EFD0C10003ADD75 /* CLI.swift in Sources */,
+				943A3F611EFD0C10003ADD75 /* InputObject.swift in Sources */,
+				943A3F651EFD0C10003ADD75 /* Object.swift in Sources */,
+				943A3F691EFD0C10003ADD75 /* Type.swift in Sources */,
 				OBJ_69 /* Expectation.swift in Sources */,
+				943A3F5F1EFD0C10003ADD75 /* Error.swift in Sources */,
+				943A3F5E1EFD0C10003ADD75 /* Enum.swift in Sources */,
+				943A3F661EFD0C10003ADD75 /* Query.swift in Sources */,
 				OBJ_70 /* Failure.swift in Sources */,
+				943A3F601EFD0C10003ADD75 /* Field.swift in Sources */,
 				OBJ_71 /* Global.swift in Sources */,
+				943A3F641EFD0C10003ADD75 /* Mutation.swift in Sources */,
+				943A3F631EFD0C10003ADD75 /* main.swift in Sources */,
+				943A3F681EFD0C10003ADD75 /* Support.swift in Sources */,
 				OBJ_72 /* GlobalContext.swift in Sources */,
+				943A3F671EFD0C10003ADD75 /* Render.swift in Sources */,
 				OBJ_73 /* Reporter.swift in Sources */,
+				943A3F5C1EFD0C10003ADD75 /* Argument.swift in Sources */,
 				OBJ_74 /* Reporters.swift in Sources */,
+				943A3F621EFD0C10003ADD75 /* Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
