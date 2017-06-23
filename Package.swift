@@ -8,6 +8,7 @@ let package = Package(
       .Package(url: "https://github.com/kylef/Stencil.git", majorVersion: 0, minor: 9),
       .Package(url: "https://github.com/kylef/Commander.git", majorVersion: 0, minor: 6),
       .Package(url: "https://github.com/drmohundro/SWXMLHash.git", majorVersion: 3, minor: 0),
+      .Package(url: "https://github.com/czechboy0/Jay.git", majorVersion: 1)
 
 //        .Package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", majorVersion: 2, minor: 0),
 //        .Package(url: "https://github.com/PerfectlySoft/Perfect-CURL.git", majorVersion: 2, minor: 0),

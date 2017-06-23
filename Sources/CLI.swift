@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Jay
 
 private func announcingExit(_ message: Any...) {
     print(message)
@@ -40,7 +41,7 @@ struct Program {
                 stencilPath = input[index + 1]
             }
         }
-    
+        
     }
     
     func run() throws {
@@ -71,13 +72,13 @@ struct Program {
         
         //let queries = types.flatMap { Query.query(from: $0) }
         //print("query count: \(query.count)")
-
-//        let _types = types.flatMap { Query.query(from: $0) }
+        
+        //        let _types = types.flatMap { Query.query(from: $0) }
         let objects = types.flatMap { Object.object(from: $0) }
-//        let q = objects.first(where: {$0.name == Query.alias})
-//        print("query = \(q?.name as Any) fileds = \(q?.fields.count as Any)")
-//        print(types.count)
-//        print(_types.count)
+        //        let q = objects.first(where: {$0.name == Query.alias})
+        //        print("query = \(q?.name as Any) fileds = \(q?.fields.count as Any)")
+        //        print(types.count)
+        //        print(_types.count)
         //print(objects.count)
         guard let outputPath = outputPath else {
             print("NO OUTPUT PAH")
@@ -86,10 +87,10 @@ struct Program {
             print("NO STENCIL PAH")
             return }
         Render().render(objects, outputPath: outputPath, stencilPath: stencilPath)
-//        print("*******")
+        //        print("*******")
         
-//        guard let query = queries.first else { return }
-//        Render().render(query)
+        //        guard let query = queries.first else { return }
+        //        Render().render(query)
     }
     
     
@@ -97,22 +98,44 @@ struct Program {
     
     func makeDictionary() throws -> JSONDictionary {
         guard let path = jsonPath else { throw CodegenError.thereIsNoWayToModel }
+
         let url = URL(fileURLWithPath: path)
         do {
-            //return try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
-            print("url to model \(url)")
-            let data = try Data(contentsOf: url)
-            print("data succeseful loaded")
-            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
-            print("dictionary succeseful generated")
+            //get data from disk/network
+            let dataContentsOfURL = try Data(contentsOf: url)
+
+            let data: [UInt8] = dataContentsOfURL.withUnsafeBytes{
+                [UInt8](UnsafeBufferPointer(start: $0, count: dataContentsOfURL.count))
+            }
+
+            let json = try Jay().anyJsonFromData(data) // [String: Any] or [Any]
+            guard let dictionary: JSONDictionary = json as? JSONDictionary else { throw CodegenError.JSONSerializationError }
             return dictionary
+
         } catch {
-            print(error.localizedDescription)
-            print("code: \((error as? NSError)?.code as Any)")
-            print("domain: \((error as? NSError)?.domain as Any)")
-            print("userInfo: \((error as? NSError)?.userInfo as Any)")
+            print("Parsing error: \(error)")
             throw CodegenError.codegenResultNotCreate
         }
-
     }
+
 }
+
+/*guard let path = jsonPath else { throw CodegenError.thereIsNoWayToModel }
+ let url = URL(fileURLWithPath: path)
+ do {
+ //return try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+ print("url to model \(url)")
+ let data = try Data(contentsOf: url)
+ print("data succeseful loaded")
+ guard let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
+ print("dictionary succeseful generated")
+ return dictionary
+ } catch {
+ print(error.localizedDescription)
+ print("code: \((error as? NSError)?.code as Any)")
+ print("domain: \((error as? NSError)?.domain as Any)")
+ print("userInfo: \((error as? NSError)?.userInfo as Any)")
+ throw CodegenError.codegenResultNotCreate
+ }
+ 
+ */
