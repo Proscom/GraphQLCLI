@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_139"
+               BlueprintIdentifier = "OBJ_153"
                BuildableName = "GraphQLCLI"
                BlueprintName = "GraphQLCLI"
                ReferencedContainer = "container:GraphQLCLI.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_139"
+            BlueprintIdentifier = "OBJ_153"
             BuildableName = "GraphQLCLI"
             BlueprintName = "GraphQLCLI"
             ReferencedContainer = "container:GraphQLCLI.xcodeproj">
@@ -55,22 +55,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_139"
+            BlueprintIdentifier = "OBJ_153"
             BuildableName = "GraphQLCLI"
             BlueprintName = "GraphQLCLI"
             ReferencedContainer = "container:GraphQLCLI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-p"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "/Users/maxim/Desktop/codegen/codegen/scorebook.json"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -84,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_139"
+            BlueprintIdentifier = "OBJ_153"
             BuildableName = "GraphQLCLI"
             BlueprintName = "GraphQLCLI"
             ReferencedContainer = "container:GraphQLCLI.xcodeproj">
