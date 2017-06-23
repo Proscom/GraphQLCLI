@@ -108,6 +108,9 @@ struct Program {
             return dictionary
         } catch {
             print(error.localizedDescription)
+            print("code: \((error as NSError).code as Any)")
+            print("domain: \((error as NSError).domain as Any)")
+            print("userInfo: \((error as NSError).userInfo as Any)")
             throw CodegenError.codegenResultNotCreate
         }
 
