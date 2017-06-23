@@ -2,20 +2,20 @@
 // Make changes to {{ file }} instead.
 
 import Foundation
+import GraphQLicious
 
 // swiftlint:disable file_length
 // swiftlint:disable type_body_length
 
 struct Api {
-   {% for field in query.fields %}
-   struct {{ field.name }} {
+   //MARK:- Query
+    {% for field in query.fields %}
+    struct {{ field.name }} {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var aliasName: String { return "{{ field.name }}"}
-        
-        static var returnType: {{ field.type.name }}.Type { return {{ field.type.name }}.self }
-        
+                
         func append(field: Field) -> {{ field.name }} {
             return append(fields: [field])
         }
@@ -27,25 +27,50 @@ struct Api {
             return copy
         }
 
-        init() {
+        init(request: Request = Request(name:"{{ field.name }}")) {
             arguments = []
             fields = []
-            request = Request(name: {{ field.name }}.aliasName, arguments: arguments, fields: fields)
+            self.request = Request(name: {{ field.name }}.aliasName, arguments: arguments, fields: fields)
         }
 
         {% for arg in field.arguments %}
-       
-        func {{ arg.name }}(_ value: Int?) -> {{ field.name }} {
+        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.name }}]{% else %}{{ arg.finalType.name }}{% endif %}?) -> {{ field.name }} {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "{{ arg.name }}", {% if arg.isList %}values{% else %}value{% endif %} : nonOptionalValue))
+            copy.request = Request(name: "{{ field.name }}", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+        {% endfor %}
+    }
+    {% endfor %}
+
+    //MARK:- Mutatuon
+    {% for field in mutation.fields %}
+    struct {{ field.name }} {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+        static var aliasName: String { return "{{ field.name }}"}
+
+        init(request: Request = Request(name:"{{ field.name }}")) {
+            arguments = []
+            fields = []
+            self.request = Request(name: "{{ field.name }}", arguments: arguments, fields: fields)
+        }
+
+        {% for arg in field.arguments %}
+        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.name }}]{% else %}{{ arg.finalType.name }}{% endif %}?) -> {{ field.name }} {
             guard let nonOptionalValue = value else { return self }
             var copy = self
             copy.arguments.append(Argument(key: "{{ arg.name }}", value: nonOptionalValue))
-            copy.request = Request(name: {{ field.name }}.aliasName, arguments: copy.arguments, fields: copy.fields)
+            copy.request = Request(name: "{{ field.name }}", arguments: copy.arguments, fields: copy.fields)
             return copy
         }
    		{% endfor %}
     }
     {% endfor %}
-
+    //MARK:- Objects
     {% for object in objects %}
 
     struct {{ object.name }} {
@@ -62,22 +87,85 @@ struct Api {
             return {{ field.finalType.name }}(request: Request(name: "{{ field.name }}"))
         }        
         {% endif %}
-
         
         {% endfor %}
-    {% endfor %}
+        func append(field: Field) -> {{ object.name }} {
+            return append(fields: [field])
+        }
+        func append(fields: [Field]) -> {{ object.name }} {
+            var copy = self
+            copy.fields.append(contentsOf: fields)
+            copy.request = Request(name: "{{ object.name }}", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+
+        init(request: Request = Request(name:"{{ object.name }}")) {
+            arguments = []
+            fields = []
+            self.request = Request(name: "{{ object.name }}", arguments: arguments, fields: fields)
+        }
+        
+        {% for arg in field.arguments %}
+       
+        func {{ arg.name }}(_ value: Int?) -> {{ object.name }} {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "{{ arg.name }}", value: nonOptionalValue))
+            copy.request = Request(name: "{{ field.name }}", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+        {% endfor %}
     }
+    {% endfor %}
+    
     //MARK:- input objects
     {% for inputObject in inputObjects %}
 
-    struct {{ inputObject.name }}: ArgumentValue {
-        public let key: String
-        public let direction: String
+    struct {{ inputObject.name }}: ArgumentValue, CustomStringConvertible, CustomDebugStringConvertible {
+        public var description: String { return asGraphQLArgument }
+        public var debugDescription: String { return asGraphQLArgument }
+
+        {% for inputField in inputObject.inputFields %}
+
+        {% if inputField.isList %}
+        public let {{ inputField.name }}: [{{ inputField.finalType.name }}]?
+        {% else %}
+        public let {{ inputField.name }}: {{ inputField.finalType.name }}?
+        {% endif %}
+
+        
+        {% endfor %}
         var asGraphQLArgument: String {
-            return "{key: \"\(key)\", direction: \"\(direction)\"}"
+            return dictionary.asGraphQLString
+        }
+        var dictionary: [String: Any] {
+            var dict:[String: Any]  = [:]
+            {% for inputField in inputObject.inputFields %}
+            if let {{ inputField.name }} = {{ inputField.name }} { dict["{{ inputField.name }}"] = {{ inputField.name }} }
+            {% endfor %}
+            return dict
         }
     }
     {% endfor %}
 
+    //MARK:- Enums
+    {% for enum in enums %}
 
+    enum {{ enum.name }}: String, ArgumentValue {
+    	public var asGraphQLArgument: String { return rawValue }
+        {% for enumValue in enum.enumValues %}
+        case {{ enumValue.name }} = "{{ enumValue.name }}"
+        {% endfor %}
+    }
+    {% endfor %}
+
+}
+
+extension Dictionary {
+    var asGraphQLString: String {
+        let s = self.map({ (kv) -> String in
+            return "\(kv.key):\(kv.value)"
+        })
+        return "{" + s.joined(separator: ",") + "}"
+    }
 }

@@ -36,7 +36,7 @@ extension Type {
         }
         guard let kind: String = dictionary["kind"] as? String else { return nil }
         let name: String? = dictionary["name"] as? String
-        let isScalar: Bool = kind == Kind.scalar
+        let isScalar: Bool = kind == Kind.scalar || kind == Kind.enum
 
         return Type(kind: kind, name: name, isScalar: isScalar, ofType: ofType)
     }

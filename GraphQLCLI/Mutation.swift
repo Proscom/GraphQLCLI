@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Mutation {
+    static var alias: String { return "Mutation" }
+}

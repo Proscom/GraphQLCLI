@@ -14,6 +14,8 @@ struct Object {
     let description: String?
     let fields: [Field]
     let inputFields: [Field]
+    let asGraphQLArgument: String
+    let enumValues: [Enum]
 
 }
 
@@ -29,8 +31,13 @@ extension Object {
         let inputFieldsDictionaryArray: JSONArray? = dictionary["inputFields"] as? JSONArray
         let inputFields: [Field] = inputFieldsDictionaryArray?.flatMap { Field.field(from: $0) } ?? []
     
+        let fileds = inputFields.map { f in "\(f.name): " + "\\" + "\"" + "\\" + "(" + "\(f.name)" + ")" + "\\" + "\""}
+        let asGraphQLArgument = fileds.joined(separator: ", ")
+
+        let enumValuesDictionaryArray: JSONArray? = dictionary["enumValues"] as? JSONArray
+        let enumValues: [Enum] = enumValuesDictionaryArray?.flatMap { Enum.enum(from: $0) } ?? []
         
-        let object = Object(name: name, kind: kind, description: description, fields: fields, inputFields: inputFields)
+        let object = Object(name: name, kind: kind, description: description, fields: fields, inputFields: inputFields, asGraphQLArgument: asGraphQLArgument, enumValues: enumValues)
         return object
     }
 }

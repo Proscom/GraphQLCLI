@@ -66,18 +66,22 @@ struct Render {
         let path = Path("/Users/maxim/Sugar/GraphQLCLI/templates/swift.stencil")
         let renderer = try! Renderer(templatePath: path)
         
-        //let objects = objects.filter { $0.kind == Kind.object }
+        let _objects = objects.filter { $0.kind == Kind.object && $0.name != Query.alias && $0.name != Mutation.alias && $0.kind != Kind.inputObject && $0.kind != Kind.enum }
         let query = objects.first(where: { $0.name == Query.alias })!
         let mutation = objects.first(where: { $0.name == "Mutation" })!
         print(mutation.name)
         let inputObjects = objects.filter { $0.kind == Kind.inputObject }
+        let enums = objects.filter { $0.kind == Kind.enum }
         
-        let kinds = objects.flatMap {$0.kind}
-        print(kinds)
-        print(inputObjects.count)
+//        let kinds = objects.flatMap {$0.kind}
+//        print(kinds)
+//        print(inputObjects.count)
         let context: [String : Any] = [
-            "objects": objects,
-            "query": query
+            "objects": _objects,
+            "mutation": mutation,
+            "query": query,
+            "inputObjects": inputObjects,
+            "enums": enums
         ]
         let code = try! renderer.render(context)
         

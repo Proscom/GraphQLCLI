@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9428EA291EFCE20300C913F2 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9428EA271EFCE19400C913F2 /* Enum.swift */; };
 		942F069A1EFAD8C10005A680 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068D1EFAD8C10005A680 /* Argument.swift */; };
 		942F069B1EFAD8C10005A680 /* CLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068E1EFAD8C10005A680 /* CLI.swift */; };
 		942F069C1EFAD8C10005A680 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942F068F1EFAD8C10005A680 /* Error.swift */; };
@@ -137,6 +138,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9428EA271EFCE19400C913F2 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		942F068D1EFAD8C10005A680 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Argument.swift; path = GraphQLCLI/Argument.swift; sourceTree = SOURCE_ROOT; };
 		942F068E1EFAD8C10005A680 /* CLI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CLI.swift; path = GraphQLCLI/CLI.swift; sourceTree = SOURCE_ROOT; };
 		942F068F1EFAD8C10005A680 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = GraphQLCLI/Error.swift; sourceTree = SOURCE_ROOT; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				942F068D1EFAD8C10005A680 /* Argument.swift */,
+				9428EA271EFCE19400C913F2 /* Enum.swift */,
 				942F06901EFAD8C10005A680 /* Field.swift */,
 				942F06951EFAD8C10005A680 /* Object.swift */,
 				942F06991EFAD8C10005A680 /* Type.swift */,
@@ -381,7 +384,7 @@
 			path = ".build/checkouts/Spectre.git--7655155069707042687/Sources";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -390,7 +393,6 @@
 				OBJ_10 /* Dependencies */,
 				OBJ_55 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_55 /* Products */ = {
@@ -556,7 +558,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -605,6 +607,7 @@
 				942F069B1EFAD8C10005A680 /* CLI.swift in Sources */,
 				942F06A01EFAD8C10005A680 /* main.swift in Sources */,
 				942F06A11EFAD8C10005A680 /* Mutation.swift in Sources */,
+				9428EA291EFCE20300C913F2 /* Enum.swift in Sources */,
 				942F069E1EFAD8C10005A680 /* InputObject.swift in Sources */,
 				942F06A51EFAD8C10005A680 /* Support.swift in Sources */,
 				942F06A21EFAD8C10005A680 /* Object.swift in Sources */,

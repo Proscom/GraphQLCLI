@@ -14,4 +14,5 @@ struct Kind {
     static var inputObject: String { return "INPUT_OBJECT" }
     static var list: String { return "LIST" }
     static var nonNull: String { return "NON_NULL" }
+    static var `enum`: String { return "ENUM" }
 }

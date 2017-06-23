@@ -15,17 +15,9 @@ struct Field {
     let type: Type
     let finalType: Type
     var finalTypeName: String
-    //let lol: Type = Type(kind: "LOLKEK", name: "SAME NAME", ofType: nil)
-    //    func asDictionary() -> [String: Any] {
-    //        var dictionary: [String: Any] = [:]
-    //        if let description = description {
-    //            dictionary["description"] = description
-    //        }
-    //        dictionary["name"] = name
-    //        dictionary["type"] = type?.asDictionary()
-    //
-    //        return dictionary
-    //    }
+    let isList: Bool
+    let isNonNull: Bool
+
     
 }
 
@@ -39,30 +31,22 @@ extension Field {
         let type = Type.type(from: typeDictionary)!
         let finalType = Type.recursiveType(Type.type(from: typeDictionary)!)
         
-//        var finalTypeName: String = ""
-//        var reverseType: Type? = type
-//        print("\n")
-//        while reverseType != nil {
-//            print("KIND MAFAKA: \(reverseType?.kind as Any)")
-//            print("TYPE MAFAKA: \(reverseType?.name as Any)")
-//            reverseType = reverseType?.ofType
-//            if let kind = reverseType?.kind  {
-//                if kind == Kind.nonNull {
-//                    finalTypeName = finalTypeName + "!"
-//                } else if kind == Kind.list {
-//                    finalTypeName = "[" finalTypeName + "]"
-//                } else if kind == Kind.nonNull {
-//                    finalTypeName = finalTypeName + "!"
-//                } else
-//
-//
-//                
-//            }
-//        }
-//        print("\n")
+        var isList: Bool = false
+        var isNonNull: Bool = false
+        var reverseType: Type? = type
+        while reverseType != nil {
+            if let kind = reverseType?.kind  {
+                if kind == Kind.nonNull {
+                    isNonNull = true
+                } else if kind == Kind.list {
+                    isList = true
+                }
+            }
+            reverseType = reverseType?.ofType
+        }
         
         
-        let field = Field(name: name, description: description, arguments: arguments, type: type, finalType: finalType, finalTypeName: "")
+        let field = Field(name: name, description: description, arguments: arguments, type: type, finalType: finalType, finalTypeName: "", isList: isList, isNonNull: isNonNull)
         return field
     }
 }
