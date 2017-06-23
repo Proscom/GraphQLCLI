@@ -17,6 +17,7 @@ struct Program {
     var input: [String]
     var jsonPath: String?
     var outputPath : String?
+    var stencilPath : String?
     
     
     init(input: [String]) {
@@ -31,6 +32,12 @@ struct Program {
         if let index = input.index(of: "-o") {
             if input.indices.contains(index + 1) {
                 outputPath = input[index + 1]
+            }
+        }
+        
+        if let index = input.index(of: "-h") {
+            if input.indices.contains(index + 1) {
+                stencilPath = input[index + 1]
             }
         }
     
@@ -48,7 +55,7 @@ struct Program {
         guard let schema: JSONDictionary = data["__schema"] as? JSONDictionary else { return }
         guard let types: JSONArray = schema["types"]as? JSONArray else { return }
         
-        let queries = types.flatMap { Query.query(from: $0) }
+        //let queries = types.flatMap { Query.query(from: $0) }
         //print("query count: \(query.count)")
 
 //        let _types = types.flatMap { Query.query(from: $0) }
@@ -57,9 +64,14 @@ struct Program {
 //        print("query = \(q?.name as Any) fileds = \(q?.fields.count as Any)")
 //        print(types.count)
 //        print(_types.count)
-        print(objects.count)
-        
-        Render().render(objects)
+        //print(objects.count)
+        guard let outputPath = outputPath else {
+            print("NO OUTPUT PAH")
+            return }
+        guard let stencilPath = stencilPath else {
+            print("NO STENCIL PAH")
+            return }
+        Render().render(objects, outputPath: outputPath, stencilPath: stencilPath)
 //        print("*******")
         
 //        guard let query = queries.first else { return }
