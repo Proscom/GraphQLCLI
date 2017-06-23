@@ -9860,6 +9860,45 @@ struct Api {
             return copy
         }
     }
+    struct UserLoginMutation {
+        var fields: [Field]
+        var arguments: [Argument]
+        var request: Request
+        static var aliasName: String { return "UserLoginMutation"}
+        init(request: Request = Request(name:"UserLoginMutation")) {
+            arguments = []
+            fields = []
+            self.request = Request(name: "UserLoginMutation", arguments: arguments, fields: fields)
+        }
+        func email(_ value: String?) -> UserLoginMutation {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "email", value: nonOptionalValue))
+            copy.request = Request(name: "UserLoginMutation", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+        func password(_ value: String?) -> UserLoginMutation {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "password", value: nonOptionalValue))
+            copy.request = Request(name: "UserLoginMutation", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+        func clientId(_ value: String?) -> UserLoginMutation {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "clientId", value: nonOptionalValue))
+            copy.request = Request(name: "UserLoginMutation", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+        func clientSecret(_ value: String?) -> UserLoginMutation {
+            guard let nonOptionalValue = value else { return self }
+            var copy = self
+            copy.arguments.append(Argument(key: "clientSecret", value: nonOptionalValue))
+            copy.request = Request(name: "UserLoginMutation", arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
+    }
     struct UserAlbumUpdateMutation {
         var fields: [Field]
         var arguments: [Argument]
@@ -13393,6 +13432,8 @@ struct Api {
     enum ImageTypes: String, ArgumentValue {
     	public var asGraphQLArgument: String { return rawValue }
         case LOGO = "LOGO"
+        case AVATAR = "AVATAR"
+        case AVATAR_FEMALE = "AVATAR_FEMALE"
         case BACKGROUND = "BACKGROUND"
     }
     enum ShopTypesEnum: String, ArgumentValue {

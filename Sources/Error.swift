@@ -14,4 +14,5 @@ enum CodegenError: Error {
     case argumentsCanNotBeRead
     case thereIsNoWayToModel
     case codegenResultNotCreate
+    case JSONSerializationError
 }

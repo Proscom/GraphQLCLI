@@ -3,3 +3,5 @@ syntax: glob
 Pods/*
 Breakpoints_v2.xcbkptlist
 *.lock
+.build
+Package.pins

@@ -35,7 +35,7 @@ struct Program {
             }
         }
         
-        if let index = input.index(of: "-h") {
+        if let index = input.index(of: "-s") {
             if input.indices.contains(index + 1) {
                 stencilPath = input[index + 1]
             }
@@ -44,10 +44,24 @@ struct Program {
     }
     
     func run() throws {
+        helpMode()
         do {
             let dictionary = try makeDictionary()
             generate(dictionary)
         } catch { announcingExit(error) }
+    }
+    
+    private func helpMode() {
+        if input.index(of: "-help") != nil {
+            var helpString = "This command line utility is intended for code generation files."
+            helpString += "Required arguments:\n"
+            helpString += "-p 'json model path' -> The path to the model, based on which will work utility\n"
+            helpString += "-o 'output path' -> The path to the creating file '/path/to/API.swfit'\n"
+            helpString += "-s 'stencil path' -> The path to the stencil\n"
+            helpString += "-help -> The utility will print the help information"
+            print(helpString)
+            exit(0)
+        }
     }
     
     func generate(_ dictionary: JSONDictionary) {
@@ -87,10 +101,10 @@ struct Program {
         do {
             //return try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
             let data = try Data(contentsOf: url)
-            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary else { throw CodegenError.thereIsNoWayToModel }
+            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
             return dictionary
         } catch {
-            throw CodegenError.thereIsNoWayToModel
+            throw CodegenError.codegenResultNotCreate
         }
 
     }
