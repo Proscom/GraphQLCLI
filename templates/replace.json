@@ -1,0 +1,7 @@
+{
+	"extension":"fileExtension",
+	"self":"isSelf",
+	"Boolean":"Bool",
+	"repeat":"isRepeat",
+	"description":"descriptionText"
+}

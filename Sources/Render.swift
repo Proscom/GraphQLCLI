@@ -46,20 +46,6 @@ enum Output {
 
 struct Render {
     
-    func render(_ query: Query) {
-        let path = Path("/Users/maxim/Sugar/GraphQLCLI/templates/swift.stencil")
-        let renderer = try! Renderer(templatePath: path)
-        
-        let context = [
-            "query": query
-        ]
-        
-        let code = try! renderer.render(context)
-        
-        let fileOutput: Output = .file("/Users/maxim/Sugar/GraphQLCLI/templates/API.swift")
-        try! fileOutput.write(text: code)
-
-    }
     
     func render(_ objects: [Object], outputPath: String, stencilPath: String) {
 
@@ -67,23 +53,29 @@ struct Render {
         let path = Path(stencilPath)
         let renderer = try! Renderer(templatePath: path)
         
-        let _objects = objects.filter { $0.kind == Kind.object && $0.name != Query.alias && $0.name != Mutation.alias && $0.kind != Kind.inputObject && $0.kind != Kind.enum }
-        let query = objects.first(where: { $0.name == Query.alias })!
-        let mutation = objects.first(where: { $0.name == "Mutation" })!
-        //print(mutation.name)
-        let inputObjects = objects.filter { $0.kind == Kind.inputObject }
-        let enums = objects.filter { $0.kind == Kind.enum }
+//        let _objects = objects.filter { $0.kind == Kind.object && $0.name != Query.alias && $0.name != Mutation.alias && $0.kind != Kind.inputObject && $0.kind != Kind.enum }
+//        let query = objects.first(where: { $0.name == Query.alias })!
+//        let mutation = objects.first(where: { $0.name == "Mutation" })!
+//        //print(mutation.name)
+//        let inputObjects = objects.filter { $0.kind == Kind.inputObject }
+//        let enums = objects.filter { $0.kind == Kind.enum }
         
 //        let kinds = objects.flatMap {$0.kind}
 //        print(kinds)
 //        print(inputObjects.count)
-        let context: [String : Any] = [
+        /*let context: [String : Any] = [
             "objects": _objects,
             "mutation": mutation,
             "query": query,
             "inputObjects": inputObjects,
             "enums": enums
         ]
+        */
+        
+        let context: [String : Any] = [
+            "objects": objects
+        ]
+ 
         let code = try! renderer.render(context)
         let oPath = Path(outputPath)
         let fileOutput: Output = .file(oPath)

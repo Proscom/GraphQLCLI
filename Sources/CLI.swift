@@ -13,11 +13,31 @@ private func announcingExit(_ message: Any...) {
     exit(1)
 }
 
+
+struct Helper {
+    static var replaceJSON: JSON? {
+        let input = ProcessInfo.processInfo.arguments
+        var replaceJsonPath: String? = nil
+        if let index = input.index(of: "-r") {
+            if input.indices.contains(index + 1) {
+                replaceJsonPath = input[index + 1]
+            }
+        }
+        do {
+            let replaceJSON = try makeDictionary(replaceJsonPath)
+            return replaceJSON
+        } catch {
+            return nil
+        }
+    }
+}
+
 struct Program {
     var input: [String]
     var jsonPath: String?
     var outputPath : String?
     var stencilPath : String?
+    
     
     
     init(input: [String]) {
@@ -41,12 +61,13 @@ struct Program {
             }
         }
         
+        
     }
     
     func run() throws {
         helpMode()
         do {
-            let dictionary = try makeDictionary()
+            let dictionary = try makeDictionary(jsonPath)
             generate(dictionary)
         } catch { announcingExit(error) }
     }
@@ -58,6 +79,7 @@ struct Program {
             helpString += "-p 'json model path' -> The path to the model, based on which will work utility\n"
             helpString += "-o 'output path' -> The path to the creating file '/path/to/API.swfit'\n"
             helpString += "-s 'stencil path' -> The path to the stencil\n"
+            helpString += "-r 'replace json path' -> file replace some names with new value (Boolean -> Bool) (extension -> fileExtension)\n"
             helpString += "-help -> The utility will print the help information"
             print(helpString)
             exit(0)
@@ -68,17 +90,7 @@ struct Program {
         let data: JSON = dictionary["data"]
         let schema: JSON = data["__schema"]
         guard let types: [JSON] = schema["types"].array else { return }
-        
-        //let queries = types.flatMap { Query.query(from: $0) }
-        //print("query count: \(query.count)")
-        
-        //        let _types = types.flatMap { Query.query(from: $0) }
         let objects = types.flatMap { Object.object(from: $0) }
-        //        let q = objects.first(where: {$0.name == Query.alias})
-        //        print("query = \(q?.name as Any) fileds = \(q?.fields.count as Any)")
-        //        print(types.count)
-        //        print(_types.count)
-        //print(objects.count)
         guard let outputPath = outputPath else {
             print("NO OUTPUT PAH")
             return }
@@ -86,57 +98,22 @@ struct Program {
             print("NO STENCIL PAH")
             return }
         Render().render(objects, outputPath: outputPath, stencilPath: stencilPath)
-        //        print("*******")
-        
-        //        guard let query = queries.first else { return }
-        //        Render().render(query)
-    }
-    
-    
-    
-    
-    func makeDictionary() throws -> JSON {
-        guard let path = jsonPath else { throw CodegenError.thereIsNoWayToModel }
-
-        let url = URL(fileURLWithPath: path)
-        do {
-            //get data from disk/network
-            let dataContentsOfURL = try Data(contentsOf: url)
-
-//            let data: [UInt8] = dataContentsOfURL.withUnsafeBytes{
-//                [UInt8](UnsafeBufferPointer(start: $0, count: dataContentsOfURL.count))
-//            }
-
-            let json = try JSON.parse(utf8: dataContentsOfURL)//try Jay().anyJsonFromData(data) // [String: Any] or [Any]
-            return json
-            //json.
-            //guard let dictionary: JSONDictionary = json as? JSONDictionary else { throw CodegenError.JSONSerializationError }
-            //return [:]
-
-        } catch {
-            print("Parsing error: \(error)")
-            throw CodegenError.codegenResultNotCreate
-        }
     }
 
 }
 
-/*guard let path = jsonPath else { throw CodegenError.thereIsNoWayToModel }
- let url = URL(fileURLWithPath: path)
- do {
- //return try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
- print("url to model \(url)")
- let data = try Data(contentsOf: url)
- print("data succeseful loaded")
- guard let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? JSONDictionary else { throw CodegenError.JSONSerializationError }
- print("dictionary succeseful generated")
- return dictionary
- } catch {
- print(error.localizedDescription)
- print("code: \((error as? NSError)?.code as Any)")
- print("domain: \((error as? NSError)?.domain as Any)")
- print("userInfo: \((error as? NSError)?.userInfo as Any)")
- throw CodegenError.codegenResultNotCreate
- }
- 
- */
+func makeDictionary(_ path: String?) throws -> JSON {
+    guard let path = path else { throw CodegenError.thereIsNoWayToModel }
+    
+    let url = URL(fileURLWithPath: path)
+    do {
+        let dataContentsOfURL = try Data(contentsOf: url)
+        let json = try JSON.parse(utf8: dataContentsOfURL)
+        return json
+    } catch {
+        print("Parsing error: \(error)")
+        throw CodegenError.codegenResultNotCreate
+    }
+}
+
+

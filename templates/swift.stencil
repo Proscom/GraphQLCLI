@@ -8,8 +8,11 @@ import GraphQLicious
 // swiftlint:disable type_body_length
 
 struct Api {
+    {% for object in objects %}
+
+    {% if object.name == "Query" %}
    //MARK:- Query
-    {% for field in query.fields %}
+    {% for field in object.fields %}
     struct {{ field.name }} {
         var fields: [Field]
         var arguments: [Argument]
@@ -34,7 +37,7 @@ struct Api {
         }
 
         {% for arg in field.arguments %}
-        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.name }}]{% else %}{{ arg.finalType.name }}{% endif %}?) -> {{ field.name }} {
+        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.replaceName }}]{% else %}{{ arg.finalType.replaceName }}{% endif %}?) -> {{ field.name }} {
             guard let nonOptionalValue = value else { return self }
             var copy = self
             copy.arguments.append(Argument(key: "{{ arg.name }}", {% if arg.isList %}values{% else %}value{% endif %} : nonOptionalValue))
@@ -45,14 +48,24 @@ struct Api {
     }
     {% endfor %}
 
+    {% elif object.name == "Mutation" %}
     //MARK:- Mutatuon
-    {% for field in mutation.fields %}
+    {% for field in object.fields %}
     struct {{ field.name }} {
         var fields: [Field]
         var arguments: [Argument]
         var request: Request
         static var aliasName: String { return "{{ field.name }}"}
-
+        func append(field: Field) -> {{ field.name }} {
+            return append(fields: [field])
+        }
+        
+        func append(fields: [Field]) -> {{ field.name }} {
+            var copy = self
+            copy.fields.append(contentsOf: fields)
+            copy.request = Request(name: {{ field.name }}.aliasName, arguments: copy.arguments, fields: copy.fields)
+            return copy
+        }
         init(request: Request = Request(name:"{{ field.name }}")) {
             arguments = []
             fields = []
@@ -60,19 +73,18 @@ struct Api {
         }
 
         {% for arg in field.arguments %}
-        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.name }}]{% else %}{{ arg.finalType.name }}{% endif %}?) -> {{ field.name }} {
+        func {{ arg.name }}(_ value: {% if arg.isList %}[{{ arg.finalType.replaceName }}]{% else %}{{ arg.finalType.replaceName }}{% endif %}?) -> {{ field.name }} {
             guard let nonOptionalValue = value else { return self }
             var copy = self
-            copy.arguments.append(Argument(key: "{{ arg.name }}", value: nonOptionalValue))
+            copy.arguments.append(Argument(key: "{{ arg.name }}", {% if arg.isList %}values{% else %}value{% endif %} : nonOptionalValue))
             copy.request = Request(name: "{{ field.name }}", arguments: copy.arguments, fields: copy.fields)
             return copy
         }
-   		{% endfor %}
+        {% endfor %}
     }
     {% endfor %}
+    {% elif object.kind == "OBJECT" %}
     //MARK:- Objects
-    {% for object in objects %}
-
     struct {{ object.name }} {
         var fields: [Field]
         var arguments: [Argument]
@@ -81,7 +93,7 @@ struct Api {
         {% for field in object.fields %}
 
         {% if field.finalType.isScalar %}
-        static var {{ field.name }}: String { return "{{ field.name }}" }
+        static var {{ field.replaceName }}: String { return "{{ field.name }}" }
         {% else %}
         static var {{ field.name }}: {{ field.finalType.name }} {
             return {{ field.finalType.name }}(request: Request(name: "{{ field.name }}"))
@@ -116,21 +128,28 @@ struct Api {
         }
         {% endfor %}
     }
-    {% endfor %}
-    
-    //MARK:- input objects
-    {% for inputObject in inputObjects %}
 
-    struct {{ inputObject.name }}: ArgumentValue, CustomStringConvertible, CustomDebugStringConvertible {
+    {% elif object.kind == "ENUM" %}
+    //MARK:- Enums
+    enum {{ object.name }}: String, ArgumentValue {
+        public var asGraphQLArgument: String { return rawValue }
+        {% for enumValue in object.enumValues %}
+        case {{ enumValue.name }} = "{{ enumValue.name }}"
+        {% endfor %}
+    }
+
+    {% elif object.kind == "INPUT_OBJECT" %}
+    //MARK:- Input objects
+    struct {{ object.name }}: ArgumentValue, CustomStringConvertible, CustomDebugStringConvertible {
         public var description: String { return asGraphQLArgument }
         public var debugDescription: String { return asGraphQLArgument }
 
-        {% for inputField in inputObject.inputFields %}
+        {% for inputField in object.inputFields %}
 
         {% if inputField.isList %}
-        public let {{ inputField.name }}: [{{ inputField.finalType.name }}]?
+        public let {{ inputField.replaceName }}: [{{ inputField.finalType.name }}]?
         {% else %}
-        public let {{ inputField.name }}: {{ inputField.finalType.name }}?
+        public let {{ inputField.replaceName }}: {{ inputField.finalType.name }}?
         {% endif %}
 
         
@@ -140,25 +159,17 @@ struct Api {
         }
         var dictionary: [String: Any] {
             var dict:[String: Any]  = [:]
-            {% for inputField in inputObject.inputFields %}
-            if let {{ inputField.name }} = {{ inputField.name }} { dict["{{ inputField.name }}"] = {{ inputField.name }} }
+            {% for inputField in object.inputFields %}
+            if let {{ inputField.replaceName }} = {{ inputField.replaceName }} { dict["{{ inputField.name }}"] = {{ inputField.replaceName }} }
             {% endfor %}
             return dict
         }
     }
+
+    {% else %}
+    //{{ object.name }}
+    {% endif %}
     {% endfor %}
-
-    //MARK:- Enums
-    {% for enum in enums %}
-
-    enum {{ enum.name }}: String, ArgumentValue {
-    	public var asGraphQLArgument: String { return rawValue }
-        {% for enumValue in enum.enumValues %}
-        case {{ enumValue.name }} = "{{ enumValue.name }}"
-        {% endfor %}
-    }
-    {% endfor %}
-
 }
 
 extension Dictionary {

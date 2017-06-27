@@ -10,6 +10,7 @@ import Foundation
 
 struct Field {
     let name: String
+    let replaceName: String
     let description: String?
     let arguments: [Argument]
     let type: Type
@@ -44,9 +45,18 @@ extension Field {
             }
             reverseType = reverseType?.ofType
         }
+        //let replaceName = Helper.replaceJSON?[name].string ?? name
+        var replaceName: String = name
+            if let json: JSON = Helper.replaceJSON?[name] {
+                switch json {
+                case .String(let string):
+                    replaceName = string
+                default:
+                    break
+                }
+            }
         
-        
-        let field = Field(name: name, description: description, arguments: arguments, type: type, finalType: finalType, finalTypeName: "", isList: isList, isNonNull: isNonNull)
+        let field = Field(name: name, replaceName: replaceName, description: description, arguments: arguments, type: type, finalType: finalType, finalTypeName: "", isList: isList, isNonNull: isNonNull)
         return field
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9419845A1EFD290700070AFD /* TidyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941984591EFD290700070AFD /* TidyJSON.swift */; };
+		94C7E0031F02609700557EAA /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C7E0011F02607A00557EAA /* Kind.swift */; };
 		OBJ_104 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Context.swift */; };
 		OBJ_105 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Environment.swift */; };
 		OBJ_106 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Errors.swift */; };
@@ -46,12 +47,8 @@
 		OBJ_160 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Enum.swift */; };
 		OBJ_161 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Error.swift */; };
 		OBJ_162 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Field.swift */; };
-		OBJ_163 /* InputObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* InputObject.swift */; };
-		OBJ_164 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Kind.swift */; };
 		OBJ_165 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* main.swift */; };
-		OBJ_166 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Mutation.swift */; };
 		OBJ_167 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Object.swift */; };
-		OBJ_168 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Query.swift */; };
 		OBJ_169 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Render.swift */; };
 		OBJ_170 /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Support.swift */; };
 		OBJ_171 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Type.swift */; };
@@ -140,15 +137,12 @@
 
 /* Begin PBXFileReference section */
 		941984591EFD290700070AFD /* TidyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TidyJSON.swift; sourceTree = "<group>"; };
+		94C7E0011F02607A00557EAA /* Kind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
-		OBJ_13 /* InputObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputObject.swift; sourceTree = "<group>"; };
-		OBJ_14 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		OBJ_15 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_16 /* Mutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
 		OBJ_17 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		OBJ_20 /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
@@ -331,7 +325,7 @@
 			path = ".build/checkouts/Stencil.git-7635584243355970173/Sources";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -341,7 +335,6 @@
 				OBJ_24 /* Dependencies */,
 				OBJ_69 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_58 /* PathKit 0.8.0 */ = {
@@ -386,17 +379,14 @@
 			isa = PBXGroup;
 			children = (
 				941984591EFD290700070AFD /* TidyJSON.swift */,
+				94C7E0011F02607A00557EAA /* Kind.swift */,
 				OBJ_8 /* Argument.swift */,
 				OBJ_9 /* CLI.swift */,
 				OBJ_10 /* Enum.swift */,
 				OBJ_11 /* Error.swift */,
 				OBJ_12 /* Field.swift */,
-				OBJ_13 /* InputObject.swift */,
-				OBJ_14 /* Kind.swift */,
 				OBJ_15 /* main.swift */,
-				OBJ_16 /* Mutation.swift */,
 				OBJ_17 /* Object.swift */,
-				OBJ_18 /* Query.swift */,
 				OBJ_19 /* Render.swift */,
 				OBJ_20 /* Support.swift */,
 				OBJ_21 /* Type.swift */,
@@ -527,7 +517,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -604,15 +594,12 @@
 				OBJ_161 /* Error.swift in Sources */,
 				9419845A1EFD290700070AFD /* TidyJSON.swift in Sources */,
 				OBJ_162 /* Field.swift in Sources */,
-				OBJ_163 /* InputObject.swift in Sources */,
-				OBJ_164 /* Kind.swift in Sources */,
 				OBJ_165 /* main.swift in Sources */,
-				OBJ_166 /* Mutation.swift in Sources */,
 				OBJ_167 /* Object.swift in Sources */,
-				OBJ_168 /* Query.swift in Sources */,
 				OBJ_169 /* Render.swift in Sources */,
 				OBJ_170 /* Support.swift in Sources */,
 				OBJ_171 /* Type.swift in Sources */,
+				94C7E0031F02609700557EAA /* Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
