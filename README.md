@@ -1,6 +1,6 @@
 
 # GraphQLCLI
-========
+
 ![Platforms](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg)
 
 Command line tool to generate  [**GraphQL**](http://graphql.org) models using scheme.
@@ -8,7 +8,7 @@ Command line tool to generate  [**GraphQL**](http://graphql.org) models using sc
 Based on template language [**Stencil**](https://github.com/kylef/Stencil).
 
 # Template
-========
+
 The arguments should be passed to template are GraphQL *objects*.
 
 ### Object
